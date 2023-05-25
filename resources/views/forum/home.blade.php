@@ -9,7 +9,7 @@ t section -->
 s="navbar navbar-dark bg-dark">
         <div class="container">
           <h1>
-            <a href="#" class="navbar-brand">Simon's Tech School Forum</a>
+            <a href="#" class="navbar-brand">DREIRUNE</a>
           </h1>
           <form action="#" class="form-inline mr-3 mb-2 mb-sm-0">
             <input type="text" class="form-control" placeholder="search" />
@@ -21,10 +21,7 @@ s="navbar navbar-dark bg-dark">
       <!-- first section end -->
     </div>
     <div class="container">
-      <nav class="breadcrumb">
-        <a href="#" class="breadcrumb-item active"> Dashboard</a>
-      </nav>
-
+    
       <div class="row">
         <div class="col-lg-8">
           <div class="row">
@@ -453,11 +450,8 @@ s="navbar navbar-dark bg-dark">
       <footer class="small bg-dark text-white">
         <div class="container py-4">
           <ul class="list-inline mb-0 text-center">
-            <li class="list-inline-item">
-              &copy; 2021 Simon's tech school forum
-            </li>
-            <li class="list-inline-item">All rights reserved</li>
-            <li class="list-inline-item">Terms and privacy policy</li>
+            <li class="list-inline-item"><p>&copy; This Website created by Durukan Oktay, Onur Büber and Ömer Yazlık...</p></li>
+            
           </ul>
         </div>
       </footer>

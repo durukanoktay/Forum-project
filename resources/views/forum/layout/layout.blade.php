@@ -62,6 +62,69 @@
             color: #fff;
             background: #17a2b8;
         }
+
+        .author-col {
+        min-width: 12em;
+        }
+
+        .post-col {
+        min-width: 20em;
+        }
+
+        .author-col {
+        min-width: 12em;
+        }
+
+        .post-col {
+        min-width: 20em;
+        } 
+        
+        .container {
+            display: flex;
+            /* flex-direction: column; 
+            justify-content: flex-start; */
+            flex-wrap: wrap;
+        }
+
+        .bigboy {
+            height: 200px;
+        }
+
+        .rightbar-pro {
+            width: 60%;
+        }
+
+        .leftbar-pro {
+            width: 35%;
+            margin-left: 20px;
+
+        }
+
+        #profile-img {
+            max-width: 200px;
+            max-height: 250px;
+        }
+        @media screen and (max-width: 800px) {
+            #profile-img {
+                max-width: 100px;
+                max-height: 125px;
+            }
+
+            @media screen and (max-width: 500px) {
+                .rightbar-pro {
+                    width: 80%;
+                }
+
+                .leftbar-pro {
+                    max-width: 90%;
+                    width: 85%;
+                    flex-direction: column;
+                    margin-left: 0;
+
+                }
+            }
+
+        }
         
     </style>
 </head>
