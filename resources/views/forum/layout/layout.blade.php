@@ -125,6 +125,25 @@
             }
 
         }
+        #message-box1{
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .admin-message1{
+            text-align: left;
+            
+        }
+        .user-message1{
+            text-align: right;
+        }
+        #buyuyen-kutu{
+            width: 200px;
+            max-height: 50%;
+            display: flex;
+            
+        }
         
     </style>
 </head>

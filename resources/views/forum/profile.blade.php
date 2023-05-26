@@ -88,6 +88,13 @@
                                     </h3>
                                 </td>
                             </tr>
+                            <tr>
+                                <td>
+                                    <h3 class="h6">
+                                        <a href="/changepas"> change password</a>
+                                    </h3>
+                                </td>
+                            </tr>
                             
                         </tbody>
                     </table>

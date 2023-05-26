@@ -24,4 +24,6 @@ Route::prefix('/')->namespace('App\Http\Controllers')->group(function () {
     Route::get('message', 'ForumController@message');
     Route::get('login', 'ForumController@login');
     Route::get('signup', 'ForumController@signup');
+    Route::get('announcament', 'ForumController@announcament');
+    Route::get('changepas', 'ForumController@changepas');
 });

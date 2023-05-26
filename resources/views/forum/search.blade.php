@@ -364,7 +364,7 @@
           <button type="submit" class="btn btn-sm btn-primary">Sort</button>
         </form>
       </div>
-      <a href="#" class="btn btn-lg btn-primary mb-2">New Topic</a>
+      <a href="/newtopic" class="btn btn-lg btn-primary mb-2">New Topic</a>
     </div>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     @endsection  

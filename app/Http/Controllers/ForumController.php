@@ -43,5 +43,13 @@ class ForumController extends Controller
     {
         return view('forum.signup');
     }
+    public function announcament()
+    {
+        return view('forum.announcament');
+    }
+    public function changepas()
+    {
+        return view('forum.changepas');
+    }
 
 }
