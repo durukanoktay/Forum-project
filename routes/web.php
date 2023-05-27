@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ForumController;
+use App\Http\Controllers\Admin\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +27,15 @@ Route::prefix('/')->namespace('App\Http\Controllers')->group(function () {
     Route::get('signup', 'ForumController@signup');
     Route::get('announcament', 'ForumController@announcament');
     Route::get('changepas', 'ForumController@changepas');
+});
+
+// Admin Panel
+Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function () {
+    Route::match(['get', 'post'], 'login', 'AdminController@login');
+    Route::group(['middleware' => ['admin']], function () {
+        Route::get('dashboard', 'AdminController@dashboard');
+        Route::match(['get', 'post'], 'profile', 'AdminController@profile');
+        Route::post('checkcurrpasswd', 'AdminController@checkcurrpasswd');
+        Route::get('logout', 'AdminController@logout');
+    });
 });
