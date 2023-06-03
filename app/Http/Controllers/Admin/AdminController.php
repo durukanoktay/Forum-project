@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -83,11 +84,14 @@ class AdminController extends Controller
                 }
 
                 if ($request->hasFile('admin_image')) {
-                    $old_image_path = public_path('assets/admin/images/photos/') . $admin->image;
+                    // Sadece veritabanında resim kaydı varsa dosya kontrolü yap
+                    if ($admin->image) {
+                        $old_image_path = public_path('assets/admin/images/photos/') . $admin->image;
 
-                    // Check if old image exists. If true, delete it.
-                    if (file_exists($old_image_path)) {
-                        unlink($old_image_path);
+                        // Eski resim varsa sil
+                        if (file_exists($old_image_path)) {
+                            unlink($old_image_path);
+                        }
                     }
 
                     $image_tmp = $request->file('admin_image');
@@ -97,7 +101,7 @@ class AdminController extends Controller
                         $image_path = public_path('assets/admin/images/photos/') . $imageName;
                         Image::make($image_tmp)->save($image_path);
 
-                        $admin->image = $imageName; // Save new image name to the admin record
+                        $admin->image = $imageName; // Yeni resim adını admin kaydına kaydet
                     }
                 }
 

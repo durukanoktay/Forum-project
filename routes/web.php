@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ForumController;
+use App\Http\Controllers\Forum\ForumController;
 use App\Http\Controllers\Admin\AdminController;
 
 /*
@@ -15,27 +15,31 @@ use App\Http\Controllers\Admin\AdminController;
 |
 */
 
-Route::prefix('/')->namespace('App\Http\Controllers')->group(function () {
-    Route::get('home', 'ForumController@forum');
-    Route::get('post', 'ForumController@post');
-    Route::get('newtopic', 'ForumController@newtopic');
-    Route::get('profile', 'ForumController@profile');
-    Route::get('editprofile', 'ForumController@editprofile');
-    Route::get('search', 'ForumController@search');
-    Route::get('message', 'ForumController@message');
-    Route::get('login', 'ForumController@login');
-    Route::get('signup', 'ForumController@signup');
-    Route::get('announcament', 'ForumController@announcament');
-    Route::get('changepas', 'ForumController@changepas');
+
+Route::prefix('/')->group(function () {
+    Route::match(['get', 'post'], 'register', [ForumController::class, 'register'])->name('register');
+    Route::match(['get', 'post'], 'login', [ForumController::class, 'login'])->name('login');
+    Route::get('', [ForumController::class, 'home'])->name('home')->name('home');
+
+    Route::middleware('auth')->group(function () {
+        Route::get('logout', [ForumController::class, 'logout'])->name('logout');
+        Route::get('{forum}/newtopic', [ForumController::class, 'newTopic'])->name('newTopic');
+        Route::post('{forum}/newtopic', [ForumController::class, 'createTopic'])->name('createTopic');
+    });
+
+    Route::get('{forum}', [ForumController::class, 'showTopic'])->name('showTopic');
 });
 
+
 // Admin Panel
-Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function () {
-    Route::match(['get', 'post'], 'login', 'AdminController@login');
+Route::prefix('/admin')->group(function () {
+    Route::match(['get', 'post'], 'login', [AdminController::class, 'login']);
     Route::group(['middleware' => ['admin']], function () {
-        Route::get('dashboard', 'AdminController@dashboard');
-        Route::match(['get', 'post'], 'profile', 'AdminController@profile');
-        Route::post('checkcurrpasswd', 'AdminController@checkcurrpasswd');
-        Route::get('logout', 'AdminController@logout');
+        Route::get('dashboard', [AdminController::class, 'dashboard']);
+        Route::match(['get', 'post'], 'profile', [AdminController::class, 'profile']);
+        Route::post('checkcurrpasswd', [AdminController::class, 'checkcurrpasswd']);
+        Route::get('logout', [AdminController::class, 'logout']);
     });
 });
+
+Route::get('{forum}/{topic}', [ForumController::class, 'showPost'])->name('showPost');
