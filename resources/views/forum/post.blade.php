@@ -31,18 +31,12 @@
                                             <span class="font-weight-bold">Post subject:</span>
                                             {{ $post->title }}
                                         </div>
-                                        <div>
-                                            <span class="font-weight-bold">Posted:</span> 08.10.2021
-                                        </div>
                                     </td>
                                 </tr>
                                 <tr>
                                 <td>
                                   <div>
-                                    <span class="font-weight-bold">Joined:</span>08.10.2021
-                                  </div>
-                                  <div>
-                                    <span class="font-weight-bold">Posts:</span> 200
+                                    <span class="font-weight-bold">Joined: </span>{{ $user->created_at }}
                                   </div>
                                 </td>
                                 <td>

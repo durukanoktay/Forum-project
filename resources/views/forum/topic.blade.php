@@ -18,8 +18,6 @@
                             <tr>
                                 <th scope="col">Topic</th>
                                 <th scope="col ">Created</th>
-                                <th scope="col">Statistics</th>
-                                <th scope="col ">Latest Post</th>
                             </tr>
                         </thead>
                         <tbody>

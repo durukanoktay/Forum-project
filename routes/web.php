@@ -23,6 +23,7 @@ Route::prefix('/')->group(function () {
 
     Route::middleware('auth')->group(function () {
         Route::get('logout', [ForumController::class, 'logout'])->name('logout');
+        Route::get('profile', [ForumController::class, 'profile'])->name('profile');
         Route::get('{forum}/newtopic', [ForumController::class, 'newTopic'])->name('newTopic');
         Route::post('{forum}/newtopic', [ForumController::class, 'createTopic'])->name('createTopic');
     });

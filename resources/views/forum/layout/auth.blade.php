@@ -58,5 +58,4 @@
 <body>
     
     @yield('content')
-    @include('forum.layout.footer')
 </body>

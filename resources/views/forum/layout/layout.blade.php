@@ -151,5 +151,4 @@
 <body>
     @include('forum.layout.header')
     @yield('content')
-    @include('forum.layout.footer')
 </body>

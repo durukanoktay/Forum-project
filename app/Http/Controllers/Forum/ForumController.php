@@ -19,27 +19,6 @@ class ForumController extends Controller
         return view('forum.home', compact('forums'));
     }
 
-    public function profile()
-    {
-        return view('forum.profile');
-    }
-    public function editprofile()
-    {
-        return view('forum.editprofile');
-    }
-    public function announcament()
-    {
-        return view('forum.announcament');
-    }
-    public function changepas()
-    {
-        return view('forum.changepas');
-    }
-
-    public function message()
-    {
-        return view('forum.message');
-    }
     public function login(Request $request)
     {
         if ($request->isMethod('post')) {
@@ -59,6 +38,10 @@ class ForumController extends Controller
         return view('forum.login');
     }
 
+    public function profile()
+    {
+        return view('forum.profile');
+    }
 
     public function register(Request $request)
     {
@@ -87,7 +70,7 @@ class ForumController extends Controller
     public function logout()
     {
         Auth::guard('web')->logout();
-        return redirect('/login');
+        return redirect('/');
     }
 
     public function newTopic($forumName)
